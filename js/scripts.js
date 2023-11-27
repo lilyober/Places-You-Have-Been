@@ -4,8 +4,14 @@ function TravelJournal() {
 };
 
 TravelJournal.prototype.addPlaces = function(place) {
-    this.places[place.location] = place;
-}
+    place.id = this.assignId();
+    this.places[place.id] = place;
+};
+
+TravelJournal.prototype.assignId = function() {
+    this.currentId = 1;
+    return this.currentId;
+};
 
 function Places(location, landmarks, year, notes) {
     this.location = location;
